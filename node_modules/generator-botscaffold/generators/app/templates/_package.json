@@ -1,0 +1,29 @@
+{
+  "name": "<%= botname %>",
+  "version": "0.1.0",
+  "description": "<%= botdescription %>",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://<yourrepository>"
+  },
+  "keywords": [
+    "bot"
+  ],
+  "author": {
+    "name" : "<%= authorname %>",
+    "email" : "<%= authoremail %>"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://<yourrepository>/issues"
+  },
+  "homepage": "https://<yourrepository>#readme",
+  "dependencies": {
+    "botbuilder": "^3.7.0",
+    "restify": "^4.3.0"
+  }
+}

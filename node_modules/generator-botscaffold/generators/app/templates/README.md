@@ -1,0 +1,4 @@
+# <%= botname %> 
+
+<%= botdescription %>
+
