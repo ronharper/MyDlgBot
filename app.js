@@ -40,5 +40,10 @@ var bot = new builder.UniversalBot(connector, [
         session.send("Got it... " + session.userData.name + 
                      " you've been programming for " + session.userData.coding + 
                      " years and use " + session.userData.language + ".");
+        builder.Prompts.choice(session, "What kind of animal do you like?", ["dog", "cat", "griffin"]);
+    },
+    function (session, results) {
+        session.userData.animal = results.response.entity;
+        session.send("Really? I never would have pegged you for a person who was into " + session.userData.animal + "s.");
     }
 ]);
