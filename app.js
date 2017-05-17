@@ -32,26 +32,26 @@ var bot = new builder.UniversalBot(connector, [
     function (session) {
         builder.Prompts.text(session, "Hello... What's your name?");
     },
-    function (session, results) {
-        session.userData.name = results.response;
-        builder.Prompts.number(session, "Hi " + results.response + ", How many years have you been coding?"); 
-    },
-    function (session, results) {
-        session.userData.coding = results.response;
-        builder.Prompts.choice(session, "What language do you code Node using?", ["JavaScript", "CoffeeScript", "TypeScript"]);
-    },
-    function (session, results) {
-        session.userData.language = results.response.entity;
-        session.send("Got it... " + session.userData.name + 
-                     " you've been programming for " + session.userData.coding + 
-                     " years and use " + session.userData.language + ".");
-        builder.Prompts.choice(session, "What kind of animal do you like?", ["dog", "cat", "griffin"]);
-    },
-    function (session, results) {
-        session.userData.animal = results.response.entity;
-        session.send("Really? I never would have pegged you for a person who was into " + session.userData.animal + "s.");
-        builder.Prompts.choice(session, "Want to see something really scary?", ["yes", "no"]);
-    },
+    // function (session, results) {
+    //     session.userData.name = results.response;
+    //     builder.Prompts.number(session, "Hi " + results.response + ", How many years have you been coding?"); 
+    // },
+    // function (session, results) {
+    //     session.userData.coding = results.response;
+    //     builder.Prompts.choice(session, "What language do you code Node using?", ["JavaScript", "CoffeeScript", "TypeScript"]);
+    // },
+    // function (session, results) {
+    //     session.userData.language = results.response.entity;
+    //     session.send("Got it... " + session.userData.name + 
+    //                  " you've been programming for " + session.userData.coding + 
+    //                  " years and use " + session.userData.language + ".");
+    //     builder.Prompts.choice(session, "What kind of animal do you like?", ["dog", "cat", "griffin"]);
+    // },
+    // function (session, results) {
+    //     session.userData.animal = results.response.entity;
+    //     session.send("Really? I never would have pegged you for a person who was into " + session.userData.animal + "s.");
+    //     builder.Prompts.choice(session, "Want to see something really scary?", ["yes", "no"]);
+    // },
     function (session, results) {
     session.send("in last function about to do adaptive card");
     var msg = new builder.Message(session)
