@@ -53,7 +53,7 @@ var bot = new builder.UniversalBot(connector, [
         builder.Prompts.choice(session, "Want to see something really scary?", ["yes", "no"]);
     },
     function (session, results) {
-//    session.send("foo");
+    session.send("in last function about to do adaptive card");
     var msg = new builder.Message(session)
     .addAttachment({
         contentType: "application/vnd.microsoft.card.adaptive",
