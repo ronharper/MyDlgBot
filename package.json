@@ -11,6 +11,7 @@
   "dependencies": {
     "botbuilder": "^3.8.0",
     "generator-botscaffold": "^0.1.0",
+    "microsoft-adaptivecards": "^0.5.6",
     "restify": "^4.3.0",
     "yo": "^1.8.5"
   },
