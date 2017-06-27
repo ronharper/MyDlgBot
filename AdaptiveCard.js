@@ -1,60 +1,4 @@
-/*-----------------------------------------------------------------------------
-This Bot demonstrates how to use a waterfall to prompt the user with a series
-of questions.
 
-This example also shows the user of session.userData to persist information
-about a specific user. 
-
-# RUN THE BOT:
-
-    Run the bot from the command line using "node app.js" and then type 
-    "hello" to wake the bot up.
-    
------------------------------------------------------------------------------*/
-
-var userData = "";
-var userName = "";
-var userAlias = "";
-var restify = require('restify');
-var builder = require('botbuilder');
-var server = restify.createServer();
-server.listen(process.env.port || 3978, function () {
-    console.log("%s listening to %s", server.name, server.url);
-});
-
-// Setup bot and root waterfall
-
-var connector = new builder.ChatConnector(
-    {
-    appId: process.env.MICROSOFT_APP_ID,
-    appPassword: process.env.MICROSOFT_APP_PASSWORD
-}
-);
-server.post("/api/messages", connector.listen());
-var bot = new builder.UniversalBot(connector, [
-    function (session) {
-        builder.Prompts.text(session, "Hello... Give me a name and email string to parse");
-    },
-   
-    function (session, results) {
-        userData = results.response;
-        if (userData.includes(">")) {
-            x = userData.indexOf("<");
-            y = userData.indexOf("@");
-            userName = userData.substring(0, (x-1));
-            userAlias = userData.substring((x+1),y);
-        } else {
-            userName = userData;
-            userAlias = "unknown";
-        };
-
-        msg = "userName = " + userName + " and userAlias is " + userAlias;
-
-        session.send(msg);
-        builder.Prompts.text(session, "any key to continue");
-    },
-    function (session, result){
-        
     session.send("in last function about to do adaptive card");
     var msg = new builder.Message(session)
     .addAttachment({
@@ -125,5 +69,3 @@ var bot = new builder.UniversalBot(connector, [
         }
     });
     session.send(msg);
-    }
-]);
